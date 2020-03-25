@@ -6,3 +6,11 @@
  * Author:            Daniel Ellis
  * Author URI:        https://danielellisdevelopment.com/
  */
+
+
+ /*
+   Basic Security
+ */
+ if ( ! defined( 'ABSPATH' ) ) {
+   die;
+ }
