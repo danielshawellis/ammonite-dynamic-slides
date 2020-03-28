@@ -2,12 +2,10 @@
 if ( !class_exists( 'Ammonite_Dynamic_Slides_Rest_Route' ) ) {
   class Ammonite_Dynamic_Slides_Rest_Route {
     public static function init_rest_route() {
-      add_action( 'rest_api_init', function () {
-        register_rest_route( 'ammonite-dynamic-slides/v1', '/slides/(?P<id>\d+)', array(
-          'methods' => 'GET',
-          'callback' => array( 'Ammonite_Dynamic_Slides_Rest_Route', 'return_slides' ),
-        ) );
-      } );
+      register_rest_route( 'ammonite-dynamic-slides/v1', '/slides/(?P<id>\d+)', array(
+        'methods' => 'GET',
+        'callback' => array( 'Ammonite_Dynamic_Slides_Rest_Route', 'return_slides' ),
+      ) );
     }
 
     public static function return_slides( $id ) {
@@ -22,6 +20,4 @@ if ( !class_exists( 'Ammonite_Dynamic_Slides_Rest_Route' ) ) {
       return new WP_REST_Response( $slide_content, 200 ); // Return the content to the requester
     }
   }
-
-  Ammonite_Dynamic_Slides_Rest_Route::init_rest_route();
 }

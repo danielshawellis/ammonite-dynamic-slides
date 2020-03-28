@@ -51,6 +51,7 @@ if ( !class_exists( 'Ammonite_Dynamic_Slides' ) ) {
 
       // Create custom API endpoint
       include 'includes/rest-api-route.php';
+      add_action( 'rest_api_init', array( 'Ammonite_Dynamic_Slides_Rest_Route', 'init_rest_route' ) );
 
       // Connect to Infusionsoft API
       // include 'includes/infusionsoft-api.php';
