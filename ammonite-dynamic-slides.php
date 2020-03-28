@@ -17,12 +17,12 @@
  /*
   Plugin Base Class
 */
-if ( !class_exists( 'Ammonite_Dynamic_Questions' ) ) {
-  class Ammonite_Dynamic_Questions {
+if ( !class_exists( 'Ammonite_Dynamic_Slides' ) ) {
+  class Ammonite_Dynamic_Slides {
     public static function init() {
       // Create custom post type
       include 'includes/post-type.php';
-      add_action( 'init', array( 'Ammonite_Dynamic_Questions_Post_Type', 'create_post_type' ) );
+      add_action( 'init', array( 'Ammonite_Dynamic_Slides_Post_Type', 'create_post_type' ) );
 
       // Register styles and scripts
       add_action( 'wp_enqueue_scripts', function() {
@@ -30,7 +30,7 @@ if ( !class_exists( 'Ammonite_Dynamic_Questions' ) ) {
         wp_register_style( 'ammonite-dynamic-slides-styles', plugins_url( 'assets/css/ammonite-dynamic-slides.css', __FILE__ ), array(), '1.0.0', 'all' );
       } );
 
-      // Set up AJAX API
+      // Localize data to script
 
       // Register shortcode
       add_shortcode( 'ammonite_dynamic_slides', function() {
@@ -38,14 +38,25 @@ if ( !class_exists( 'Ammonite_Dynamic_Questions' ) ) {
         wp_enqueue_script( 'ammonite-dynamic-slides-script' );
         wp_enqueue_style( 'ammonite-dynamic-slides-styles' );
 
+        // Trigger VC shortcode processing
+        add_action( 'rest_api_init', function() {
+          WPBMap::addAllMappedShortcodes();
+        } );
+
         // Return template
         ob_start();
         include 'templates/dynamic-slides-container.php';
         return ob_get_clean();
       } );
+
+      // Create custom API endpoint
+      include 'includes/rest-api-route.php';
+
+      // Connect to Infusionsoft API
+      // include 'includes/infusionsoft-api.php';
     }
   }
 
   // Call methods on load here
-  Ammonite_Dynamic_Questions::init();
+  Ammonite_Dynamic_Slides::init();
 }

@@ -1,6 +1,6 @@
 <?php
-if ( !class_exists( 'Ammonite_Dynamic_Questions_Post_Type' ) ) {
-  class Ammonite_Dynamic_Questions_Post_Type {
+if ( !class_exists( 'Ammonite_Dynamic_Slides_Post_Type' ) ) {
+  class Ammonite_Dynamic_Slides_Post_Type {
     public static function create_post_type() {
       $labels = array(
         'name'               => _x( 'Dynamic Slides', 'post type general name' ),
@@ -21,6 +21,7 @@ if ( !class_exists( 'Ammonite_Dynamic_Questions_Post_Type' ) ) {
         'labels'        => $labels,
         'description'   => 'Dynamic, treeing, AJAX-enabled slides',
         'public'        => true,
+        'show_in_rest'  => true,
         'menu_position' => 5,
         'menu_icon'     => 'dashicons-code-standards',
         'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
