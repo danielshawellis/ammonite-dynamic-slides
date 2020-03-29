@@ -1,6 +1,6 @@
 .ammonite-dynamic-slides-outer-container {
   display: grid;
-  min-height: 200px;
+  height: 200px;
   background-color: #f8f8f8;
   border: 1px solid #f0f0f0;
   border-radius: 5px;
@@ -15,7 +15,7 @@
 /* Animation from SpinKit: https://github.com/tobiasahlin/SpinKit */
 .ammonite-dynamic-slides-loading-spinner-container {
   display: flex;
-  height: 100%;
+  height: 200px;
   grid-row: 1;
   grid-column: 1;
   justify-content: center;
