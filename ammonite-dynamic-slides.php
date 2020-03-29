@@ -38,11 +38,6 @@ if ( !class_exists( 'Ammonite_Dynamic_Slides' ) ) {
         wp_enqueue_script( 'ammonite-dynamic-slides-script' );
         wp_enqueue_style( 'ammonite-dynamic-slides-styles' );
 
-        // Trigger VC shortcode processing
-        add_action( 'rest_api_init', function() {
-          WPBMap::addAllMappedShortcodes();
-        } );
-
         // Return template
         ob_start();
         include 'templates/dynamic-slides-container.php';
