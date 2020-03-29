@@ -4,8 +4,16 @@ ammoniteDynamicSlides = function() {
   let localizedData = ammoniteDynamicSlidesLocalizedData;
 
   // SCRIPT SETTINGS
+  let settings = {
+
+  }
 
   // ASSOCIATED CLASSES
+  let classes = {
+    outerContainer: 'ammonite-dynamic-slides-outer-container',
+    innerContainer: 'ammonite-dynimic-slides-inner-container',
+    loadingContainer: 'ammonite-dynamic-slides-loading-spinner-container'
+  }
 
   // EVENT LISTENERS
 
