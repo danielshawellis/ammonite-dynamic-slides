@@ -20,15 +20,35 @@ ammoniteDynamicSlides = function() {
   jQuery( document ).ready( function() {
     let loadInterval = setInterval( function() {
       if ( jQuery( '.' + classes.outerContainer ).length !== 0 ) {
-        loadNewSlide( localizedData.initialSlideId );
         clearInterval( loadInterval );
+        loadNewSlide( localizedData.initialSlideId );
       }
     }, 500 );
   } );
 
   // SCRIPT METHODS
   function loadNewSlide( slideId ) {
-    console.log( 'Slide Loaded: ', slideId );
+    let newSlideUrl = localizedData.ajaxUrl + slideId;
+
+    // Get slide
+    jQuery.ajax( {
+      type: 'get',
+      dataType: 'json',
+      url: newSlideUrl,
+      success: function( response ) {
+        handleAjaxSuccess( response );
+      }
+    } );
+
+    // Handle AJAX success
+    function handleAjaxSuccess( response ) {
+      console.log( response );
+    }
+
+    // Handle AJAX failure
+    function handleAjaxFailure() {
+
+    }
   }
 }();
 
