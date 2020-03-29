@@ -1,5 +1,8 @@
 // Create a single IEEF-based global module for this script
 ammoniteDynamicSlides = function() {
+  // LOCALIZED DATA
+  let localizedData = ammoniteDynamicSlidesLocalizedData;
+
   // SCRIPT SETTINGS
 
   // ASSOCIATED CLASSES
