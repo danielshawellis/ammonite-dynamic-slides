@@ -16,9 +16,20 @@ ammoniteDynamicSlides = function() {
   }
 
   // EVENT LISTENERS
+  // Outer container loaded
+  jQuery( document ).ready( function() {
+    let loadInterval = setInterval( function() {
+      if ( jQuery( '.' + classes.outerContainer ).length !== 0 ) {
+        loadNewSlide( localizedData.initialSlideId );
+        clearInterval( loadInterval );
+      }
+    }, 500 );
+  } );
 
   // SCRIPT METHODS
-
+  function loadNewSlide( slideId ) {
+    console.log( 'Slide Loaded: ', slideId );
+  }
 }();
 
 
